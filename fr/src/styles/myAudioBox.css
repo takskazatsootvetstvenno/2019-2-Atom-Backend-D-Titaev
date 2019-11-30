@@ -1,0 +1,21 @@
+.Overdiv {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  margin-top: 1%;
+   margin-right: 5px;
+  border: none;
+}
+
+.myaudioPicture {
+  width: 50px;
+  border: none;
+  height: 50px;
+  border-radius: 100%;
+  opacity: 0.8;
+}
+
+.myaudioPicture:hover{
+  opacity: 1;
+}
+

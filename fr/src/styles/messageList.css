@@ -1,0 +1,130 @@
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.headerlist {
+  float: right;
+  height: 20%;
+  width: 100%;
+  background-color: blueviolet;
+  box-shadow: inset 0px -20px 20px #7112c9;
+}
+
+.button1 {
+  margin-top: 30px;
+  margin-left: 10px;
+  float: left;
+  background-color: blueviolet;
+  border: none;
+  color: white;
+  padding: 20px;
+  background: url(../build/static/images/list.png) no-repeat center;
+  background-size: cover;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 32px;
+  font-weight: 600;
+  border-radius: 100%;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.button1:hover {
+  opacity: 1;
+}
+
+.pensilbutton {
+  position: absolute; 
+  top: 80%;
+  left: 90%;
+  width: 70px;
+  height: 70px;
+  border: none;
+  color: black;
+  display: inline-block;
+  background: url(../build/static/images/pencil.png) no-repeat center;
+  background-color: #ffd64e;
+  opacity: 0.8;
+  padding: 15px;
+  border-radius: 100%;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.pensilbutton:hover {
+  opacity: 1;
+  animation: 2s linear 0s normal none infinite running myrotate;
+}
+
+@keyframes myrotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hattextlist {
+  margin-left: 38%;
+  margin-top: 2%;
+  font-size: 36px;
+  text-align: center;
+  float: left;
+  color: white;
+}
+
+.lupa{
+  margin-top: 30px !important; 
+  margin-right: 15px;
+  background-color: blueviolet; 
+  margin-top: 2%;
+  border: none;
+  background: url(../build/static/images/lupa.png) no-repeat center;
+  background-size: cover;
+  opacity: 0.7;
+  width: 50px;
+  height: 50px;
+  float: right;
+  cursor: pointer;
+}
+
+.lupa:hover {
+  opacity: 1;
+}
+
+.content {
+  flex: clear;
+  background-color: gainsboro;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: flex-end;
+  overflow-y: auto;
+}
+
+:host {
+  height: 100%;
+  width: 100%;
+  display: block-inline;
+}
+
+.footer {
+  height: 10%;
+  width: 100%;
+}
