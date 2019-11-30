@@ -1,0 +1,79 @@
+.pictureBox {
+  height: 150px;
+  width: 150px;
+  flex-shrink: 0;
+  border: none;
+  opacity: var(--opac);
+}
+
+.dialog {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 2%;
+  flex-grow: 1;
+  opacity: var(--opac);
+  border-top: 1px solid DarkGrey !important;
+}
+
+.dialogname {
+  font-size: 32px;
+  text-align: left;
+}
+
+.dialoglastchat {
+  text-align: left;
+  max-height: 10%;
+}
+
+.time-check {
+  margin-right: 3px;
+  display: flex;
+  align-content: flex-center;
+  height: 100%;
+  flex-direction: column-reverse;
+  border-top: 1px solid DarkGrey !important;
+  opacity: var(--opac);
+}
+
+.time-check .icon {
+  height: 50px;
+  width: 50px;
+  align-self: flex-end;
+}
+
+.time-check .mytimechatbox {
+  top: 10px;
+  width: 50px;
+  font-size: 18px;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.contentBox {
+  --opac: 0.8;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 150px;
+  width: 100%;
+  text-align: right;
+  align-self: flex-end;
+  word-break: break-all;
+  border-top: 1px solid white;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contentBox:hover {
+  --opac: 1;
+}
+
+.contentBox .time_right {
+  width: 100%;
+  text-align: right; 
+}
+
+.contentBox_right:after {
+  clear: both;
+}

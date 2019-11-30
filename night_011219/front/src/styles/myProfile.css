@@ -1,0 +1,139 @@
+.wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.headerprof{
+    float: right;
+    height: 15%;
+    width: 100%;
+    background-color: blueviolet;
+    box-shadow: inset 0px -20px 20px #7112c9
+}
+.buttonback{
+    margin-top: 20px;
+    margin-left: 10px;
+    float: left;
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    padding: 20px;
+    background: url(../build/static/images/go_back.png) no-repeat center;
+    background-size: cover;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    font-weight: 600;
+    border-radius: 100%;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.buttonback:hover{
+  opacity: 1;
+}
+.hatedit{
+   margin-left: 5%;
+   margin-top: 2%;
+   font-size: 36px;
+   text-align: center;
+   float: left;
+   color: white;
+}
+.profileok{
+  margin-top: 20px !important; 
+  margin-right: 25px;
+  background-color: blueviolet; 
+  margin-top: 2%;
+  border: none;
+  background: url(../build/static/images/profok.png) no-repeat center;
+  color: white;
+  background-size: cover;
+  opacity: 0.7;
+  width: 50px;
+  height: 50px;
+  float: right;
+  cursor: pointer;
+}
+.profileok:hover{
+  opacity: 1;
+}
+.inputfn{
+  background-color: #eeeeee;
+  color: black;
+  font-size: 24px;
+}
+.inputun{
+  background-color: #eeeeee;
+  color: black;
+  font-size: 24px;
+}
+.inputbio{
+  background-color: #eeeeee;
+  color: black;
+  font-size: 22px;
+  max-width: 98%;
+  overflow-x: scroll;
+  word-break: break-all;
+}
+.profilepicture{
+    margin-left: 45%;
+    margin-right: 5px;
+    margin-top: 2%;
+    height: 90px;
+    width: 90px;
+    flex-shrink: 0;
+    border: none;
+    float: left;
+}
+.fullname{
+  font-size: 14px;
+  color: #6b6b6b; 
+}
+.username{
+  font-size: 14px;
+  color: #6b6b6b; 
+}
+.bio{
+  font-size: 14px;
+  color: #6b6b6b; 
+}
+.profilebox{
+  margin-top: 3%;
+  padding-top: 5px;
+  padding-left: 2%;
+  padding-bottom: 2%; 
+  background-color: #eeeeee;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: solid #9b9b9b;
+}
+.profilebiobox{
+  margin-top: 5%;
+  padding-top: 5px;
+  padding-left: 2%;
+  padding-bottom: 2%; 
+  background-color: #eeeeee;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: solid #9b9b9b;
+}
+.contents{
+    box-shadow: inset 0px 1px 1px #292929;
+    flex: clear;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    
+    flex-flow: column nowrap;
+    align-content: flex-end;
+    overflow-y: auto;
+}
+:host{
+    height: 100%;
+    width: 100%;
+    display: block-inline;
+}
