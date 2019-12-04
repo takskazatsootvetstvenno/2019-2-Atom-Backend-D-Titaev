@@ -17,6 +17,36 @@ export class MessageProfile extends React.Component {
 		this.clickBackButton =this.clickBackButton.bind(this);
 		this.clickOkButton=this.clickOkButton.bind(this);
 	}
+	componentDidMount(){
+		fetch(`http://localhost/back/users/`, {
+		    method: 'GET',
+		    mode: 'cors',
+		    //body: JSON.stringify({'not': 'not'}),
+		    headers: { 'Content-Type': 'application/json' }
+		  }).then(response => {
+		    if (response.status >= 400) {
+		      // !response.ok
+		      return response.json().then(errResData => {
+		        const error = new Error('Something went wrong!');
+		        error.data = errResData;
+		        throw error;
+		      });
+		    }
+		    return response.json().then(data=>{
+					var answer = data.answer;
+					var backprofile = {
+						id: answer.id,
+						nick: answer.nick,
+						avatar: answer.avatar,
+						usernameback: answer.username,
+						first: answer.first,
+						last: answer.last,
+					}
+					var tempusername=answer.first+' '+answer.last;
+					this.setState({back: backprofile, valueusername: tempusername})
+				});
+		  });
+	}
 	componentWillMount(props) {
 		this.curprof = localStorage.getItem('CurrentProfile');
 		this.data = JSON.parse(this.curprof);

@@ -5,7 +5,23 @@ from dialog.models import dialog
 from member.models import member
 from user.forms import CheckUserNameForm
 from user.forms import CheckUserIdForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
+def allinformation(request):
+	if request.method != 'GET':
+		print("Not GET!")
+		return JsonResponse({'Eror': 'not get request'})
+	userobj = {
+		'id': request.user.id,
+		'nick': request.user.nick,
+		'avatar': request.user.avatar,
+		'usernameback': request.user.username,
+		'first': request.user.first_name,
+		'last': request.user.last_name,
+	}
+	return JsonResponse({'answer': userobj})
+@login_required
 def user(request):
 	if request.method != 'GET':
 		print("Not GET!")
@@ -23,7 +39,8 @@ def user(request):
 	else:
 		return JsonResponse({'error': form.errors}, status=400)
 	return JsonResponse({'answer': mylist})
-
+	
+@login_required
 def finduser(request):
 	if request.method != 'GET':
 		print("Not GET!")

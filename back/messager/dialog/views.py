@@ -5,10 +5,11 @@ from dialog.models import dialog
 from member.models import member
 from message.models import message
 from dialog.forms import PostCreateChatForm
+from django.contrib.auth.decorators import login_required
 import datetime
-CURRENT_USER = 1 #от какого пользователя выполняется запрос, сейчас от первого
-#
+#CURRENT_USER = 1 #от какого пользователя выполняется запрос, сейчас от первого
 
+@login_required
 def create_chat(request):
 	mylist = ['can not create new']
 	if request.method == 'POST':
@@ -18,7 +19,7 @@ def create_chat(request):
 			topic = request.POST.get('topic')
 			last_message = request.POST.get('last_message')
 			curchat = form.save()
-			curuser= myuser.objects.get(id = CURRENT_USER)
+			curuser= myuser.objects.get(username = request.user)
 			curmessage = message.objects.create(user = curuser, chat = curchat,
 					content = last_message, added_at = datetime.datetime.now())
 			member.objects.create(user = curuser, chat = curchat,
@@ -33,16 +34,19 @@ def create_chat(request):
 
 	return JsonResponse({'answer': mylist})
 
+@login_required
 def member_list(request):
-	#if request.method == 'GET' and request.method == 'POST':
+	print(request.user)
 	if request.method != 'GET':
 		return JsonResponse({'Eror':'not get request'})
 	mylist = []
-	curuser= myuser.objects.get(id = CURRENT_USER)
+	curuser= myuser.objects.get(username = request.user)
 	members = member.objects.filter(user=curuser)
+	print(members)
 	for curmember in members:
 		curchat = curmember.chat
 		mylist.append({
+				'your_name_id': request.user.id,
 				'member_info':{
 					'member_id': curmember.id,
 					'new_messages': curmember.new_messages,

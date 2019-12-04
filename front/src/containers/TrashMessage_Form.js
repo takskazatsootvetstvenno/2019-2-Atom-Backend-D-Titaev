@@ -25,9 +25,6 @@ export class TrashMessage_Form extends React.Component {
 		//console.log(this.lasttimecheck);
 		this.read_all_messages_from_server();
 		//console.log(this.lasttimecheck);
-
-		
-		
 		this.t = setInterval(()=>
 			{
 			var mytime = {
@@ -41,22 +38,22 @@ export class TrashMessage_Form extends React.Component {
 			}
 			this.read_new_messages_from_server(mytime);
 			}
-			,500);
+			,3000);
 		
 	}
 	clickBackButton()
 	{
+		clearInterval(this.t);
 		const datacur={};
 		datacur.frame = {
 			id: '1',
 			number: '1',
 		};
 		localStorage.setItem('CurrentForm', JSON.stringify(datacur));
-	
 	}
 	read_new_messages_from_server(mytime)
 	{
-		return fetch(`http://localhost:8000/trashchat/new_messages?ye=${mytime.ye}&mo=${
+		return fetch(`http://localhost/back/trashchat/new_messages?ye=${mytime.ye}&mo=${
 			mytime.mo+1}&da=${mytime.da}&ho=${mytime.ho}&mi=${mytime.mi}&sec=${mytime.sec}&micsec=${mytime.micsec}`, {
 		    method: 'GET',
 		    mode: 'cors',
@@ -84,7 +81,7 @@ export class TrashMessage_Form extends React.Component {
 	}
 	read_all_messages_from_server()
 	{
-			return fetch('http://localhost:8000/trashchat/messages_list', {
+			return fetch('http://localhost/back/trashchat/messages_list', {
 		    method: 'GET',
 		    mode: 'cors',
 		    //body: JSON.stringify({'not': 'not'}),
@@ -121,15 +118,11 @@ export class TrashMessage_Form extends React.Component {
 
 
 			clearInterval(this.t);
-			 var payload = {
-			    user: '1',
-			    content: 'gsgdg'
-			};
 			var data = new FormData();
 			data.append( "user", obj[0].user );
 			data.append( "content", obj[0].content );
 
-			return fetch('http://localhost:8000/trashchat/send_message', {
+			return fetch('http://localhost/back/trashchat/send_message', {
 		    	method: 'POST',
  				body: data,
 		  }).then(response => {
@@ -172,7 +165,7 @@ export class TrashMessage_Form extends React.Component {
 						}
 						this.read_new_messages_from_server(mytime);
 						}
-						,500);
+						,3000);
 						},100)
 						
 						

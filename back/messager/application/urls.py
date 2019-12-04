@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from blog import views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +29,10 @@ urlpatterns = [
     #path('chat_page/', include('chat_page.urls')),
     #path('chat_list/', include('chat_list.urls')),
     #path('chat_contacts/', include('chat_contacts.urls')),
-    path('', include('main.urls')),
+    #path('home/', include('main.urls')),
+    #path('', include('social_django.urls')),
+    path('login/', views.login, name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('social_auth/', include('social_django.urls', namespace='social')),
+    path('', views.home, name='home'),
 ]

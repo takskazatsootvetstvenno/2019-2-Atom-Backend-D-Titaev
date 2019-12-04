@@ -35,7 +35,6 @@ export class MyAudioBox extends React.Component {
 	{
 		this.setState({'picturesrc': ImgPlay});
 		this.setState({'played': 'Yes'});
-		console.log('ended');
 	}
 	render(){return(
 		<div className='Overdiv'>

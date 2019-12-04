@@ -7,4 +7,4 @@ class message(models.Model):
 	#topic = models.CharField(max_length=32,blank=False)#unnessasa
 	content = models.TextField()
 	#added_at = models.CharField(max_length=8)
-	added_at = models.DateTimeField(auto_now=True)
+	added_at = models.DateTimeField()

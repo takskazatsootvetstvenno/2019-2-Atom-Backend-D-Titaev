@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'social_django',
     'dialog',
     'user',
     'message',
@@ -50,7 +51,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends'
             ],
         },
     },
@@ -79,7 +80,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'application.wsgi.application'
 
 
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -99,6 +100,29 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.vk.VKOAuth2',
+]
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_VK_OAUTH2_KEY = '7228856'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'K58rPd7pT8Mpb5nNXQOn'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'http://localhost'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '' # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '' # App Secret
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+ os.path.join(BASE_DIR, 'static'),
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -120,7 +144,6 @@ AWS_ACCESS_KEY_ID = 'ajKwWXt784W9dQSKV5a6Rn'
 AWS_SECRET_ACCESS_KEY = 'bqM5Ts4RZWPogy8itx5JgmGfaNE1RvN6vkuMHYbRBJn9'
 AWS_STORAGE_BUCKET_NAME = 'dtitaev_messanger_bucket'
 
-CORS_ORIGIN_ALLOW_ALL = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 

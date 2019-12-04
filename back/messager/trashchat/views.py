@@ -24,6 +24,8 @@ def new_messages(request):
 		print("Not GET!")
 		return JsonResponse({'Eror': 'not get request'})
 	mylist=[]
+	print('new_messages')
+
 	form = CheckNewMessagesForm(request.GET)
 	if form.is_valid():
 		ye = request.GET.get('ye')
